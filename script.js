@@ -21,6 +21,7 @@ function busca() {
                 <p>${email}</p>
                 <p>${telefone}</p>
                 <p>${limitacoes}</p>  
+                </div>
             </li>
           `)
         //   .join("");
