@@ -25,7 +25,7 @@ function busca() {
         `)
       //   .join("");
       console.log(htmlList);
-      document.querySelector(".container.search").innerHTML = htmlList;
+      document.querySelector(".container-search").innerHTML = htmlList;
     });
 }
 
@@ -55,7 +55,7 @@ function about(){
 //função funcionamento
 function funcionamento(){
   const funcionamento = `
-  <div class="funcinamento">
+  <div class="funcionamento">
   <div class="funcionamento-title">
       <h1>Como Funciona a Lista de Capacidade</h1>
   </div>
