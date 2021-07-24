@@ -248,7 +248,7 @@ section {
 }
 
 .funcionamento{
-    display: flex;
+    display: block;
 }
 
 .funcionamento-title{

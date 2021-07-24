@@ -30,7 +30,7 @@ function busca() {
 }
 
 //função inicio
-function inicia(){
+function inicial(){
   const inicial = `
         <div class="inicial">
         <h1>Como Funciona?</h1>
