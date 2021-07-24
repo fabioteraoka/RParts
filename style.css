@@ -168,7 +168,7 @@ section {
     margin: 1rem;
     border: 1px solid var(--primary-gray);
 }
-.container.search{
+.container-search{
     display: flex;
     margin: 2rem 1rem;
     justify-content: space-around;

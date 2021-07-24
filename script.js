@@ -38,7 +38,7 @@ function inicial(){
         <p>A <strong>RepairParts</strong> É UMA PLATAFORMA DE  PESQUISA POR OFICINAS REPARADORAS, CERTIFICADAS PELA ANAC, PARA REPAROS OU REVISÃO GERAL DE COMPONENTES. 
                       CONECTAMOS VOCÊ A QUEM FAZ.</p>
         </div> `;
-        document.querySelector(".container.search").innerHTML = inicial;
+        document.querySelector(".container-search").innerHTML = inicial;
       }
 
 //função about
@@ -49,7 +49,7 @@ function about(){
                   <img src="./images/profile.svg" alt="">
                   <p>A RepairParts é uma empresa dedicada a facilitar a vida dos operadores da aviação, conectando operadores e oficinas nacionais certificadas, com segurança, eficiência, rapidez e redução de custos. Acreditamos na capacidade dos profissionais brasileiros e no desenvolvimento da Indústria nacional.   </p>
               </div>`
-              document.querySelector(".container.search").innerHTML = about;
+              document.querySelector(".container-search").innerHTML = about;
 }
 
 //função funcionamento
@@ -78,5 +78,5 @@ function funcionamento(){
       </div>
   </div>
   </div>`
-              document.querySelector(".container.search").innerHTML = funcionamento;
+              document.querySelector(".container-search").innerHTML = funcionamento;
 }
