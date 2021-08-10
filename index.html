@@ -1,75 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>RepairParts</title>
+    <link rel="stylesheet" href="./styleR2.css">
+    <title>Aviation Service</title>
 </head>
-
 <body>
-    <section>
-        <header class="header">
-            <div class="logo">
-                <h1>RepairParts</h1>
+    <div class="container">
+        <nav>
+            <div class="nav-logo">
+                <img src="./images/AviationServiceLogo.svg" alt="aviation service logo">
             </div>
-            <div action="">
-                <input type="text" name="search" id="search"/>
-                <button type="submit" value="search" onclick="busca()">Search</button>
-            </div>
-        </header>
-    </section>
-    <main>
-        <aside class="about">
-                <div class="container">
-                    <h2 type="submit" onclick="inicial()">Inicial</h2>
-                    <h2 type="submit" onclick="about()">Quem Somos</h2>
-                    <h2 type="submit" onclick="funcionamento()">Funcionamento</h2>
+            <div class="nav-links">
+                <a href=""></a>
+                <div>
+                    <!-- <a href="">Login</a>
+                    <a href="" class="btn">Sign Up</a> -->
                 </div>
-        </aside>
-    
-        <section class="content">
-            <ul class="container-search">
-                <div class="inicial">
-                    <h1>Como Funciona?</h1>
-                    <img src="./images/connecting.svg" alt="">
-                    <p>A <strong>RepairParts</strong> É UMA PLATAFORMA DE  PESQUISA POR OFICINAS REPARADORAS, CERTIFICADAS PELA ANAC, PARA REPAROS OU REVISÃO GERAL DE COMPONENTES. 
-                                  CONECTAMOS VOCÊ A QUEM FAZ.</p>
-                </div> 
-            </ul>  
-        </section>
-    
-        <aside class="marketing">
-            <div>
-                <h2>Marketing</hh2>
             </div>
-            <div class="container-marketing">
-                <div class="search-marketing">
-                    <a href="http://www.avalondevops.com.br/">
-                        <img src="./images/av2.svg" alt="">
-                        <h1>DevOps</h1>
-                        <p>Dados de contato</p>
-                        <p>endereço</p>
-                    </a>
- 
-                </div>
-
-            </div>  
-        </aside>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; RepairParts</p>
+        </nav>
+        <div class="content">
+            <h1>A <strong>Aviation Service</strong> é uma plataforma de pesquisa por oficinas<br>Certificadas pela ANAC<br> para reparos em componentes</h1>
+            <div class="search-box">
+                <input type="text" name="search" id="search" placeholder="Digite o part number">
+                <button type="submit" value="search" onclick="busca()"><img src="images/search.png" alt=""></button>
+            </div>
+            <p>CONECTAMOS VOCÊ A QUEM FAZ</p>
         </div>
-
-    </footer>
-
-
+        <div>
+            <ul class="container-search"></ul>
+        </div>
+    </div>
 </body>
-<script src="/script.js">
-</script>
-  
+<script>
+    async function busca() {
+        const btnSearch = document.getElementById("search").value;
+        console.log(btnSearch);
+        const response = await fetch('http://localhost:8080/dev',{mode: 'no-cors'});
+        const parts = await response.json();
+        console.log(parts);
+        const result = parts.filter((i) => i.MODELO_PART_NUMBER === btnSearch);
+        console.log(result);
 
+        const htmlList = result.map(
+          ({ DESCRICAO, FABRICANTE, TIPO_DE_SERVICO }) => `
+            <li>
+                <div class="search-result">
+                <h1>${DESCRICAO}</h1>
+                <h3><strong>${FABRICANTE}</strong></h3>
+                <p>${TIPO_DE_SERVICO}</p>
+                </div>
+            </li>
+          `
+        )
+          .join("");
+        console.log(htmlList);
+        document.querySelector(".container-search").innerHTML = htmlList;
+        }
+
+</script>
 </html>

@@ -121,7 +121,7 @@ function busca() {
         `)
       //   .join("");
       console.log(htmlList);
-      document.querySelector(".container.search").innerHTML = htmlList;
+      document.querySelector(".container-search").innerHTML = htmlList;
     });
 }
 
@@ -195,3 +195,6 @@ toggleBtn.addEventListener('click', function(){
 closeBtn.addEventListener('click', function(){
   sidebar.classList.remove('show-sidebar')
 })
+
+
+// criando api com google sheet

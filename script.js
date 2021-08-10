@@ -1,10 +1,17 @@
+// var express = require('express')
+// var cors = require('cors')
+// var app = express()
+
+// app.use(cors())
+
 //função busca part number
 function busca() {
   const btnSearch = document.getElementById("search").value;
   console.log(btnSearch);
   let url =
     "https://api.sheety.co/17cc63aacdf00d54d806c20f10ba052a/analise/capacitacaoParts";
-  fetch(url)
+    // "https//tera-alurakut.netlify.app/api/Capability"
+  fetch(url,{mode: 'no-cors'})
     .then((response) => response.json())
     .then((json) => {
       const pn = json.capacitacaoParts;

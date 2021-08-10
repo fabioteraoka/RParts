@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+    <link rel="stylesheet" href="./styleR1.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <title>Repair</title>
+</head>
+<body>
+  <header id="header">
+    <nav class="container">
+      <a class="" href="#">
+        <img class="logo" src="./images/AviationServiceLogo.svg" alt="aviation service logo">
+      </a>
+      <div class="search-main">
+          <input type="text" name="search" id="search" placeholder="Digite o part number"/>
+          <button type="submit" value="search" onclick="busca()">Search</button>
+      </div>
+      <!-- menu -->
+      <div class="menu">
+        <ul class="grid">
+          <li><a class="title" type="submit" onclick="inicial()">Início</a></li>
+          <li><a class="title" type="submit" onclick="about()">Quem Somos</a></li>
+          <li><a class="title" type="submit" onclick="funcionamento()">Funcionamento</a></li>
+          <li><a class="title" href="#contact">Contato</a></li>
+        </ul>
+      </div>
+      <!-- /menu -->
+      <div class="toggle icon-menu"></div>
+      <div class="toggle icon-close"></div>
+    </nav>
+  </header>
+
+<section class="content">
+    <ul class="container-search">
+        <div class="inicial">
+            <h1>Como Funciona?</h1>
+            <img src="./images/connecting.svg" alt="">
+            <p>A <strong>Aviation Service</strong> É UMA PLATAFORMA DE  PESQUISA POR OFICINAS REPARADORAS, CERTIFICADAS PELA ANAC, PARA REPAROS OU REVISÃO GERAL DE COMPONENTES. 
+                          CONECTAMOS VOCÊ A QUEM FAZ.</p>
+        </div> 
+    </ul>  
+</section>
+<footer>
+  <div class="container">
+      <p>&copy; Aviation Service</p>
+  </div>
+
+</footer>
+</body> 
+<!-- <script src="./script5.js"></script> -->
+<script>
+        async function busca() {
+        const btnSearch = document.getElementById("search").value;
+        console.log(btnSearch);
+        const response = await fetch('http://localhost:8080/dev',{mode: 'no-cors'});
+        const parts = await response.json();
+        console.log(parts);
+        const result = parts.filter((i) => i.MODELO_PART_NUMBER === btnSearch);
+        console.log(result);
+
+        const htmlList = result.map(
+          ({ DESCRICAO, FABRICANTE, TIPO_DE_SERVICO }) => `
+            <li>
+                <div class="search-result">
+                <h1>${DESCRICAO}</h1>
+                <h3><strong>${FABRICANTE}</strong></h3>
+                <p>${TIPO_DE_SERVICO}</p>
+                </div>
+            </li>
+          `
+        )
+          .join("");
+        console.log(htmlList);
+        document.querySelector(".container-search").innerHTML = htmlList;
+        }
+
+
+  //     
+  
+
+</script>
+</html>
