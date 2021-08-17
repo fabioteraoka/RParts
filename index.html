@@ -38,7 +38,7 @@
     async function busca() {
         const btnSearch = document.getElementById("search").value;
         console.log(btnSearch);
-        const response = await fetch('http://localhost:8080/dev',{mode: 'no-cors'});
+        const response = await fetch('/dev',{mode: 'no-cors'});
         const parts = await response.json();
         console.log(parts);
         const result = parts.filter((i) => i.MODELO_PART_NUMBER === btnSearch);

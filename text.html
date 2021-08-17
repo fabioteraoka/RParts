@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <!-- Form and button search -->
+    <form action="search.php" method="post">
+        <input type="text" name="search" placeholder="Search">
+        <input type="submit" value="Search">
+    </form>
+    <!-- End of form and button search -->
+    <!-- Card with images and text inputs-->
+    <div class="card">
+        <div class="card-image">
+            <img src="http://placehold.it/300x300" alt="">
+        </div>
+        <div class="card-content">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+        <div class="card-action">
+            <a href="#">Action</a>
+            <a href="#">Another action</a>
+            <a href="#">Something else here</a>
+        </div>
+    </div>
+</body>
+<script>
+    // function to execute when search button is clicked
+    function search() {
+        var search = document.getElementById("search").value;
+        if (search) {
+            window.location.href = "search.php?search=" + search;
+        }
+    }
+
+</script>
+</html>
