@@ -1,6 +1,7 @@
 const express = require("express");
 const credentials = require('./credentials.json')
 const { GoogleSpreadsheet } = require('google-spreadsheet');
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 app.set("view engine", "ejs");
@@ -87,4 +88,4 @@ app.get("/dev", async (req, res) => {
 })
 
 
-app.listen(8080, (req, res) => console.log("running on 8080"));
+app.listen(PORT, (req, res) => console.log("running on 8080"));
